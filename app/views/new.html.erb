@@ -1,0 +1,10 @@
+<h1>New Book</h1>
+
+<%= form_for @book do |f| %>
+  Title: <%= f.text_field :title %><br />
+  Author First Name: <%= f.text_field :author_first %><br />
+  Author Last Name: <%= f.text_field :author_last %><br />
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Books', books_path %>
