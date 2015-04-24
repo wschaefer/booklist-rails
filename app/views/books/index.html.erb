@@ -1,10 +1,21 @@
 <div class="row">
   <div class="col-xs-12">
-    <h1>Books</h1>
+    <h1>Flagged Books</h1>
 
     <ul>
-    <% @books.each do |book| %>
-      <li><%= book.author_last %>, <%= book.author_first %>: <%= book.title %></li>
+    <% @flagged_books.each do |book| %>
+      <li>
+        <%= link_to "#{book.author_last}, #{book.author_first}: #{book.title}", edit_book_path(book) %>
+      </li>
+    <% end %>
+    </ul>
+
+    <h1>Unflagged Books</h1>
+    <ul>
+    <% @unflagged_books.each do |book| %>
+      <li>
+        <%= link_to "#{book.author_last}, #{book.author_first}: #{book.title}", edit_book_path(book) %>
+      </li>
     <% end %>
     </ul>
 
