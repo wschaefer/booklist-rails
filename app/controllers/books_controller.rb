@@ -28,7 +28,11 @@ class BooksController < ApplicationController
 
   def update
     book = Book.find(params[:id])
-    book.update_attributes(params[:book].permit(:title, :author_first, :author_last, :flag))
-    redirect_to books_path
+    book.update_attributes(params[:book].permit(:title, :author_first, :author_last, :flag, :read))
+
+    respond_to do |format|
+      format.html { redirect_to books_path }
+      format.json { render json: book}
+    end
   end
 end
